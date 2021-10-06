@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  mongodb:
+    container_name: imageresizing_mongodb
+    image: mongo:latest
+    ports:
+      - '27017:27017'
+    volumes:
+      - mongodb:/data/db
+    networks:
+      - imageresizing
+
+  s3:
+    container_name: imageresizing_s3
+    image: scireum/s3-ninja:6.4
+    ports:
+      - '9444:9000'
+    volumes:
+      - s3:/home/sirius/data
+    networks:
+      - imageresizing
+
+networks:
+  imageresizing:
+    name: imageresizing-net
+
+volumes:
+  mongodb:
+  s3:
