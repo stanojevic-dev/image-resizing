@@ -1,5 +1,5 @@
 import * as dotenv from 'dotenv';
-import {ApplicationConfig, ImageResizingApplication} from './application';
+import { ApplicationConfig, ImageResizingApplication } from './application';
 
 export * from './application';
 
